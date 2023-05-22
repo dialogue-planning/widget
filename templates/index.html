@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body style="background-image: url('../static/css/clouds.jpg'); text-align: center;">
+        <div id="title" class="exceloratorheader"><a style="text-decoration: none; color: unset;">HOVOR</a></div>
+        <div class="block" id="instructions">
+                Create a new conversation, or enter your user ID to load an existing conversation.
+        </div>
+        <div class="block">
+            NOTE: If you enter a user ID and create a new conversation, it will overwrite the existing conversation.
+        </div>
+        <div style="display: flex; justify-content: flex-end;">
+            <script type="module">
+                import {buildLandingInput, initConvo} from "../static/js/export.js";
+                buildLandingInput(function(){     
+                    window.location.href += "conversation.html"; }
+                );
+            </script>
+        </div>
+    </body>
+</html> 

@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'excelorateregular';
+    src: url('excelorate-font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.exceloratorheader {
+    display: inline-block;
+    color: rgb(187, 240, 255);
+    font-size: 7em;
+    transition: 0.5s;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    font-family: excelorateregular;
+    text-shadow: 0 1px 0 #126595, 0 2px 0 #126595,
+                 0 3px 0 #126595, 0 4px 0 #126595,
+                 0 5px 0 #126595, 0 6px 0 #126595,
+                 0 7px 0 #126595, 0 8px 0 #126595,
+                 0 9px 0 #126595, 0 10px 0 #126595,
+                 0 11px 0 #126595, 0 12px 0 #126595,
+                 0 15px 25px rgba(106, 69, 255, 0.612);
+}
+.exceloratorheader:hover {
+    color:#72d0ff;
+}
+.block {
+    background-color: #126595;
+    border-radius: 1em 1em 1em 1em;
+    margin: 5% 25% 5% 25%;
+    padding: 1.5em 1.5em 1.5em 1.5em;
+    font-family: 'Courier New';
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+    font-weight: 800;
+    text-align: center;
+}
+
+.conversation {
+    border-radius: 1em 1em 1em 1em;
+    width: 70vw;
+    margin: auto;
+    max-width: 70vw;
+    /* border-color: rgba(31, 95, 255, 0.52); */
+    border-color: rgba(0, 83, 192, 0.41);
+    border-left-style: groove;
+    border-right-style: groove;
+    border-width: 0.5em;
+}
+.conversation.box{
+    background-color: rgba(233, 252, 255, 0.612);;
+    display: flex;
+    flex-direction: column;
+    height: 72vh;
+    max-height: 72vh;
+    overflow-y:scroll;
+    max-width: 100%;
+    overflow-x: hidden;
+    border-top-style: groove;
+}
+.conversation.input_box {
+    background-color: #126595;
+    display: flex;
+    flex-direction: row-reverse;
+    overflow-x: hidden;
+    border-bottom-style: groove;
+}
+.message-box{
+    display: inline-flex;
+    flex-direction: row;
+    height: fit-content;
+    max-height: fit-content;
+    max-width: inherit;
+}
+.message {
+    margin: 3% auto 1% 1%;
+    border-radius: 6em 8em 8em 1em;
+    padding: 2em 3em 1em 2em;
+    background-color:rgb(187, 240, 255); 
+    color:black;
+    font-family: monospace;
+    font-weight: 700;
+    word-wrap: break-word;
+    width: fit-content;
+    height: fit-content;
+    max-width: 40%;
+    font-size: 1vw;
+    text-align: left;
+}
+.icon{
+    width: 7%;
+    aspect-ratio: 1 / 1;
+    margin-top: auto;
+}
+.message.user {
+    border-radius: 8em 6em 1em 8em;
+    background-color: #126595;
+    margin: 3% 1% 1% auto;
+    color:white;
+    text-align: right;
+}
+
+.input {
+    border-radius: 1em 1em 1em 1em;
+    margin: 1em 1em 1em 1em;
+    padding: 1em 1em 1em 1em;  
+    font-family: "Courier New";
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.5vh;
+    word-wrap: break-word;
+}
+
+.input.button_hover:hover{
+    background-color: rgb(187, 240, 255);
+}
