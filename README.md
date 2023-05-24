@@ -1,4 +1,4 @@
-![landing](hovor_landing.png) 
+![landing](widget_landing.png) 
 
 # Doing a test run
 First, you need to have a Hovor server running. See the [contingent-plan-executor](https://github.com/dialogue-planning/contingent-plan-executor) repo for details.  
@@ -7,16 +7,16 @@ With npm installed, clone and cd into the repository and run `npx live-server`.
 
 
 # Embedding into your site
-![chat](hovor_chat.png)
+![chat](widget_chat.png)
 You can add the UI to your site in a few lines of code:
 
 ```
 // style sheet
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/beckydvn/hovor-ui/static/css/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/css/style.css">
 
 // driver code
 <script type="module">
-    import {host, buildLandingInput, initConvo} from "https://cdn.jsdelivr.net/gh/beckydvn/hovor-ui/static/js/export.js";
+    import {host, buildLandingInput, initConvo} from "https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/js/export.js";
     buildLandingInput(function(){ initConvo(); });
 </script>
 ```
