@@ -12,6 +12,13 @@ const typing = [".        ", ". .      ", ". . .    ", ". . . .  ", ". . . . ."]
 import { getDomElement, getFromLocalStorage, httpPost, changeInputState } from "./utils.js";
 import host from "./host.js";
 function initConvo() {
+    const input_box = document.getElementById("input-box");
+    if (input_box != null) {
+        const input_box_parent = input_box.parentNode;
+        if (input_box_parent != null) {
+            input_box_parent.removeChild(input_box);
+        }
+    }
     buildConvoBox();
     loadAllMsgs();
 }

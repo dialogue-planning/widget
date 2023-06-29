@@ -6,12 +6,9 @@ With npm installed, clone and cd into the repository and run `npx live-server`.
 
 # Embedding into your site
 ![chat](widget_chat.png)
-You can add the UI to your site in a few lines of code:
+You can add the UI to your site in a couple lines of code:
 
 ```
-// style sheet
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/css/style.css">
-
 // driver code
 <script type="module">
     import {host, buildLandingInput, initConvo} from "https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/js/export.js";
