@@ -60,7 +60,6 @@ function addMsg(user, message) {
     }
     else {
         icon.setAttribute("src", "https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/css/robot.png");
-        icon.setAttribute("src", "../static/css/robot.png");
         msgbox.appendChild(icon);
         msgbox.appendChild(bubble);
     }
