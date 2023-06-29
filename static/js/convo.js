@@ -54,14 +54,12 @@ function addMsg(user, message) {
     icon.classList.add("icon");
     if (user) {
         bubble.classList.add("user");
-        // TODO: change the image links when WIDGET goes public
-        icon.setAttribute("src", "https://cdn.jsdelivr.net/gh/beckydvn/old-hovor-ui/static/css/user.png");
-        // icon.setAttribute("src", "../static/css/user.png");
+        icon.setAttribute("src", "https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/css/user.png");
         msgbox.appendChild(bubble);
         msgbox.appendChild(icon);
     }
     else {
-        icon.setAttribute("src", "https://cdn.jsdelivr.net/gh/beckydvn/old-hovor-ui/static/css/robot.png");
+        icon.setAttribute("src", "https://cdn.jsdelivr.net/gh/dialogue-planning/widget/static/css/robot.png");
         icon.setAttribute("src", "../static/css/robot.png");
         msgbox.appendChild(icon);
         msgbox.appendChild(bubble);
