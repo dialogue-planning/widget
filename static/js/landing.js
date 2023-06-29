@@ -8,8 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 import { getDomElement, getFromLocalStorage, httpGet, httpPost, changeInputState } from "./utils.js";
-import host from "./host.js";
-function newConvo() {
+function newConvo(host) {
     return __awaiter(this, void 0, void 0, function* () {
         // don't want to throw an error here as we may or may not have it
         if (localStorage.getItem("user_id")) {
@@ -28,7 +27,7 @@ function newConvo() {
         return response;
     });
 }
-function loadConvo() {
+function loadConvo(host) {
     return __awaiter(this, void 0, void 0, function* () {
         const response = yield httpPost(host + "/load-conversation", { "user_id": getFromLocalStorage("user_id") });
         // TODO: need to check all statuses here
@@ -40,7 +39,7 @@ function loadConvo() {
         return response;
     });
 }
-function buildLandingInput(executeConvo) {
+function buildLandingInput(executeConvo, host) {
     const input_box = document.createElement("div");
     input_box.id = "input-box";
     const input = document.createElement("input");
@@ -54,14 +53,14 @@ function buildLandingInput(executeConvo) {
     input_btn_new.type = "button";
     input_btn_new.id = "new-convo-button";
     input_btn_new.innerHTML = "Start new conversation";
-    input_btn_new.onclick = function () { takeLandingInput("new", executeConvo); };
+    input_btn_new.onclick = function () { takeLandingInput("new", executeConvo, host); };
     const input_btn_load = document.createElement("button");
     input_btn_load.classList.add("input");
     input_btn_load.classList.add("button_hover");
     input_btn_load.type = "button";
     input_btn_load.id = "load-convo-button";
     input_btn_load.innerHTML = "Load conversation";
-    input_btn_load.onclick = function () { takeLandingInput("load", executeConvo); };
+    input_btn_load.onclick = function () { takeLandingInput("load", executeConvo, host); };
     const error = document.createElement("p");
     error.id = "error";
     error.style.color = "darkred";
@@ -84,7 +83,7 @@ function fillID() {
         userIDInput.value = getFromLocalStorage("user_id");
     }
 }
-function takeLandingInput(mode, executeConvo) {
+function takeLandingInput(mode, executeConvo, host) {
     return __awaiter(this, void 0, void 0, function* () {
         const input_ids = ["new-convo-button", "load-convo-button", "user-id-input"];
         changeInputState(input_ids, true);
@@ -94,10 +93,10 @@ function takeLandingInput(mode, executeConvo) {
             localStorage.setItem("user_id", user_input_box.value);
         }
         if (getFromLocalStorage("mode") == "new") {
-            var result = yield newConvo();
+            var result = yield newConvo(host);
         }
         else {
-            var result = yield loadConvo();
+            var result = yield loadConvo(host);
         }
         changeInputState(input_ids, false);
         if (result.status !== "error") {

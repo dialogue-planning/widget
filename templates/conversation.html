@@ -3,7 +3,7 @@
     <head>
         <script type="module">
             import {initConvo} from "../static/js/export.js";
-            window.addEventListener("load", (event) => { initConvo(); });
+            window.addEventListener("load", (event) => { initConvo(localStorage.getItem("host")); });
         </script>
     </head>
     <body style="background-image: url('../static/css/clouds.jpg'); text-align: center;">

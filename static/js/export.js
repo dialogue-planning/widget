@@ -1,4 +1,3 @@
-import host from "./host.js";
 import { buildLandingInput } from "./landing.js";
 import { initConvo } from "./convo.js";
 function addCss() {
@@ -10,4 +9,4 @@ function addCss() {
     head.appendChild(link);
 }
 addCss();
-export { host, buildLandingInput, initConvo };
+export { buildLandingInput, initConvo };

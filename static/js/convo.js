@@ -10,8 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 // @ts-check
 const typing = [".        ", ". .      ", ". . .    ", ". . . .  ", ". . . . ."];
 import { getDomElement, getFromLocalStorage, httpPost, changeInputState } from "./utils.js";
-import host from "./host.js";
-function initConvo() {
+function initConvo(host) {
     const input_box = document.getElementById("input-box");
     if (input_box != null) {
         const input_box_parent = input_box.parentNode;
@@ -19,10 +18,10 @@ function initConvo() {
             input_box_parent.removeChild(input_box);
         }
     }
-    buildConvoBox();
+    buildConvoBox(host);
     loadAllMsgs();
 }
-function buildConvoBox() {
+function buildConvoBox(host) {
     const convo_window = document.createElement("div");
     convo_window.id = "convo-window";
     const convo_box = document.createElement("div");
@@ -37,7 +36,7 @@ function buildConvoBox() {
     send_btn.classList.add("input");
     send_btn.classList.add("button_hover");
     send_btn.id = "send-button";
-    send_btn.onclick = function () { sendUserMsg(); };
+    send_btn.onclick = function () { sendUserMsg(host); };
     send_btn.innerHTML = "Send";
     const input = document.createElement("input");
     input.classList.add("input");
@@ -109,7 +108,7 @@ function loadAllMsgs() {
         changeInputState(["send-button", "input"], false);
     }
 }
-function sendUserMsg() {
+function sendUserMsg(host) {
     return __awaiter(this, void 0, void 0, function* () {
         var input = getDomElement("input");
         if (input.value.length > 0) {

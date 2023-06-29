@@ -13,9 +13,12 @@
         </div>
         <div style="display: flex; justify-content: flex-end;">
             <script type="module">
-                import {buildLandingInput, initConvo} from "../static/js/export.js";
+                import {buildLandingInput} from "../static/js/export.js";
+                localStorage.setItem("host", "http://localhost:44825");
                 buildLandingInput(function(){     
-                    window.location.href += "conversation.html"; }
+                            window.location.href += "conversation.html";
+                        },
+                    localStorage.getItem("host")
                 );
             </script>
         </div>

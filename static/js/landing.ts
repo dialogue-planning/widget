@@ -1,8 +1,7 @@
 import {getDomElement, getFromLocalStorage, httpGet, httpPost, changeInputState} from "./utils.js";
-import host from "./host.js";
 
 
-async function newConvo(){
+async function newConvo(host: string){
     // don't want to throw an error here as we may or may not have it
     if(localStorage.getItem("user_id")){
         var response = await httpPost(host + "/new-conversation", {"user_id": localStorage.getItem("user_id")});
@@ -20,7 +19,7 @@ async function newConvo(){
     return response;
 }
 
-async function loadConvo(){
+async function loadConvo(host: string){
     const response = await httpPost(host + "/load-conversation", {"user_id": getFromLocalStorage("user_id")});
     // TODO: need to check all statuses here
     if(response.status == "error"){
@@ -31,7 +30,7 @@ async function loadConvo(){
     return response;
 }
 
-function buildLandingInput(executeConvo: Function){
+function buildLandingInput(executeConvo: Function, host: string){
     const input_box = document.createElement("div");
     input_box.id = "input-box";
 
@@ -47,7 +46,7 @@ function buildLandingInput(executeConvo: Function){
     input_btn_new.type = "button";
     input_btn_new.id = "new-convo-button";
     input_btn_new.innerHTML = "Start new conversation";
-    input_btn_new.onclick = function(){takeLandingInput("new", executeConvo)};
+    input_btn_new.onclick = function(){takeLandingInput("new", executeConvo, host)};
 
     const input_btn_load = document.createElement("button");
     input_btn_load.classList.add("input");
@@ -55,7 +54,7 @@ function buildLandingInput(executeConvo: Function){
     input_btn_load.type = "button";
     input_btn_load.id = "load-convo-button";
     input_btn_load.innerHTML = "Load conversation";
-    input_btn_load.onclick = function(){takeLandingInput("load", executeConvo)};
+    input_btn_load.onclick = function(){takeLandingInput("load", executeConvo, host)};
 
     const error = document.createElement("p");
     error.id = "error";
@@ -84,7 +83,7 @@ function fillID(){
     }
 }
 
-async function takeLandingInput(mode: string, executeConvo: Function){
+async function takeLandingInput(mode: string, executeConvo: Function, host: string){
     const input_ids = ["new-convo-button", "load-convo-button", "user-id-input"];
     changeInputState(input_ids, true);
     localStorage.setItem("mode", mode);
@@ -93,10 +92,10 @@ async function takeLandingInput(mode: string, executeConvo: Function){
         localStorage.setItem("user_id", user_input_box.value);
     }
     if(getFromLocalStorage("mode") == "new"){
-        var result = await newConvo();
+        var result = await newConvo(host);
     }
     else{
-        var result = await loadConvo();
+        var result = await loadConvo(host);
     }
     changeInputState(input_ids, false);
     if(result.status !== "error"){

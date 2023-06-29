@@ -1,4 +1,4 @@
-import host from "./host.js";
+
 import {buildLandingInput} from "./landing.js";
 import {initConvo} from "./convo.js";
 
@@ -15,4 +15,4 @@ function addCss() {
 
 addCss();
 
-export {host, buildLandingInput, initConvo};
+export {buildLandingInput, initConvo};

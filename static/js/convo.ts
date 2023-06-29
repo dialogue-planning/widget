@@ -1,10 +1,9 @@
 // @ts-check
 const typing = [".        ", ". .      ", ". . .    ", ". . . .  ", ". . . . ."];
 import {getDomElement, getFromLocalStorage, httpPost, changeInputState} from "./utils.js";
-import host from "./host.js";
 
 
-function initConvo(){
+function initConvo(host: string){
     const input_box = document.getElementById("input-box");
     
     if(input_box != null){
@@ -14,11 +13,11 @@ function initConvo(){
         }
     }
     
-    buildConvoBox();
+    buildConvoBox(host);
     loadAllMsgs();
 }
 
-function buildConvoBox(){
+function buildConvoBox(host: string){
     const convo_window = document.createElement("div");
     convo_window.id = "convo-window";
 
@@ -36,7 +35,7 @@ function buildConvoBox(){
     send_btn.classList.add("input");
     send_btn.classList.add("button_hover");
     send_btn.id = "send-button";
-    send_btn.onclick = function () { sendUserMsg(); };
+    send_btn.onclick = function () { sendUserMsg(host); };
     send_btn.innerHTML = "Send";
 
     const input = document.createElement("input");
@@ -123,7 +122,7 @@ function loadAllMsgs(){
     }
 }
 
-async function sendUserMsg(){
+async function sendUserMsg(host: string){
     var input = (<HTMLInputElement>getDomElement("input"));
     if(input.value.length > 0)
     {
