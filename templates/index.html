@@ -14,10 +14,10 @@
         <div style="display: flex; justify-content: flex-end;">
             <script type="module">
                 import {buildLandingInput} from "../static/js/export.js";
-                localStorage.setItem("host", "http://localhost:44825");
+                localStorage.setItem("host", "http://localhost:5000");
                 buildLandingInput(function(){     
-                            window.location.href += "conversation.html";
-                        },
+                        window.location.href += "conversation.html";
+                    },
                     localStorage.getItem("host")
                 );
             </script>
